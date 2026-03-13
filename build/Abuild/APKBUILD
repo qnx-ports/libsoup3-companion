@@ -3,7 +3,7 @@
 # Maintainer: Felix Xing <fxing@qnx.com>
 pkgname=libsoup3
 pkgver=3.6.5
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="Gnome HTTP client/server Library"
 url="https://libsoup.gnome.org"
 arch="all"
@@ -63,6 +63,7 @@ package() {
     DESTDIR="$pkgdir" meson install --no-rebuild -C output
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 cb44d93b16048d31ae04a8c2416bbe233e0e9bdaf2d9bfe2879260fd3da27e90a0bb05cddbd82cdf81a4a778bd451ad172a14dd31e2fd113c3bbbe13c0029b03  libsoup-3.6.5.tar.xz
 "
